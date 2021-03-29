@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/test.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css') }}" type="text/css">
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="center">
+    <div class="left">
+    <form method="POST">
+        <input type="text" name="text" placeholder="请输入所查询内容">
+        <input type="submit" name="submit" value="点我搜索">
+        <input type="submit" name="submit" value="点击进入login">
+    </form>
+        <p>搜索词：</p>
+        {%for u in paper_list%}
+            <div class="list">
+                <div class="item">
+                    <h3>标题:{{u.title}}</h3>
+                    <h4>来自峰会:{{u.meeting}}</h4>
+                    <p>摘要:{{u.paper_abstract}}</p>
+                    <p><a href={{u.url}}>链接:{{u.url}}</a></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="right">
+    </div>
+    <div class="right">
+    </div>
+</div>
+</body>
+</html>
