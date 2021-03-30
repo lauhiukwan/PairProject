@@ -23,22 +23,27 @@
             div class="list">
 
         <div class="item">
-            <h3>{{u[0].title}}</h3>
+            <div class="main">
+                <h3>{{u[0].title}}</h3>
 
-            <p>{{u[0].meeting}} {{u[0].date}}</p>
-            <p>关键词:
-                <b>
-                    {%for k in u[1]%}
-                    {{"  "+k.keyword}}
-                    {%endfor%}
-                </b>
-            </p>
+                <p>{{u[0].meeting}} {{u[0].date}}</p>
+                <p>关键词:
+                    <b>
+                        {%for k in u[1]%}
+                        {{"  "+k.keyword}}
+                        {%endfor%}
+                    </b>
+                </p>
 
-            <p class="css-border" style="border-left:6px solid #2196F3;
-            background-color:#ddffff;">
-                {{u[0].paper_abstract}}</p>
+                <p class="css-border" style="border-left:6px solid #2196F3;
+                background-color:#ddffff;">
+                    {{u[0].paper_abstract}}</p>
 
-            <p>原文链接:<a href={{u.url}}>{{u[0].url}}</a></p>
+                <p>原文链接:<a href={{u.url}}>{{u[0].url}}</a></p>
+            </div>
+            <div class="fengmian">
+                <img src="fengmian.jpg" alt="fengmian" width="200px"/>
+            </div>
 
             <div class="op">
                 <form method="post">
@@ -67,17 +72,25 @@
             border: 0.5px solid rgba(0, 0, 0, 0.2);
             border-radius: 25px;
 
+
             letter-spacing: 0pt;
-            line-height: 2;
+            line-height: 1;
             background: #ffffff;
         }
-        div.item h3{
-            font-size: 20px;
+        div.main{
+            float: left;
+        }
+        div.main h3{
+            font-size: 15px;
             font-weight: bold;
+            font-color: blue;
         }
 
-        div.item p{
-            font-size: 15px;
+        div.main p{
+            font-size: 8px;
+        }
+        div.fengmian{
+            float: right;
         }
         div.op{
             float: left;
