@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/test.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/warn.css') }}"/>
+</head>
+<body>
+{% include 'navbar.html' %}
+<form method="POST">
+    <div>{{forms.username.label}}{{forms.username}}{{text1}}</div><br>
+    <div>{{forms.password.label}}{{forms.password}}{{text2}}</div><br>
+    <div>{{forms.password2.label}}{{forms.password2}}{{text3}}</div><br>
+    <div>{{forms.submit}}</div>
+</form>
+</body>
+</html>

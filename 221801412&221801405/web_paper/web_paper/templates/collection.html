@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/test.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css') }}" type="text/css">
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="center">
+    <div class="left">
+    <h2>收藏列表如下</h2>
+        <br>
+        <h5>共{{all_paper}}条记录</h5>
+        <br>
+        {%for u in paper_map%}
+            <div class="list">
+                <div class="item">
+                    <h3>标题:{{u[0].title}}</h3>
+                    <h4>来自峰会:{{u[0].meeting}}</h4><span>日期:{{u[0].date}}</span>
+                    <p>关键词:</p>
+                    {%for k in u[1]%}
+                        {{"  "+k.keyword}}
+                    {%endfor%}
+                    <p>摘要:{{u[0].paper_abstract}}</p>
+                    <p><a href={{u.url}}>链接:{{u[0].url}}</a></p>
+                    <form method="post">
+                        <input type="text" style="visibility: hidden;" name="collect" value={{u[0].id}} />
+                        <input type="submit" name="submit" value="删除收藏">
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        <p>{{page}}</p>
+        <form class="center" method="POST">
+            <select name="select">
+                {%for u in all_page%}
+                    <OPTION value={{u+1}}>第{{u+1}}页</OPTION>
+                {%endfor%}
+            </select>
+            <input type="submit" name="submit" value="跳转">
+        </form>
+    </div>
+    <div class="right">
+    </div>
+    <div class="right">
+    </div>
+</div>
+</body>
+</html>

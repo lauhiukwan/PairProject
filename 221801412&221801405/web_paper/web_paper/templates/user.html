@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/center.css') }}" type="text/css">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css') }}" type="text/css">
+</head>
+<body>
+{% include 'navbar.html' %}
+    <div class="center">
+        <p class="border">欢迎您，{{username}}</p>
+        <p class="border">您是我们网站第{{user_id}}位会员</p>
+        <p class="border">您一共收藏了{{paper_number}}篇论文</p>
+        <p class="border">您的密码为:{{password}}</p>
+        <form method="POST">
+            <input type="submit" name="submit" value="退出登录">
+        </form>
+    </div>
+</body>
+</html>
