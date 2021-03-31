@@ -1,0 +1,2 @@
+['learning (artificial intelligence)', 'Cameras', 'Training', 'Computer vision', 'Feature extraction', 'feature extraction', 'computer vision', 'object detection', 'Shape', 'image classification']
+[2471, 2162, 2023, 1769, 1684, 1606, 1506, 1440, 1421, 1399]
