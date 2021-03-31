@@ -1,0 +1,53 @@
+{% block top %}
+<div id="container" style="height: 600px;width:1000px;"></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+var option;
+option = {
+    title: {
+        text: '热词前top10',
+        subtext: '数据来自ICCV,ECCV,CVPR'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        data: ['热词前top10']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: {
+        type: 'category',
+        data: {{data1|safe}}
+    },
+    series: [
+        {
+            name: '关键词出现次数:',
+            type: 'bar',
+            data: {{data2}}
+        }
+    ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+
+</script>
+
+{% endblock top %}
